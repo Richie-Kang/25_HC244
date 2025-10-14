@@ -1,0 +1,75 @@
+### AIVideo 저장 api (VIDEO mode with reference file)
+POST http://localhost:8080/api/my/videos
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3a3dqc3JqNTA3OUBnbWFpbC5jb20iLCJ1c2VySWQiOjEsImlhdCI6MTc0MTkzNDkwMCwiZXhwIjoxNzQxOTM4NTAwfQ.T9VYMJPm3CiwBB5WtwHMOsyKdIuc9wqnPMxYiqo5uQQ
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="videoFile"; filename="UUcobo42yaoKJR6d-1t7V_output.mp4"
+Content-Type: video/mp4
+
+< ./UUcobo42yaoKJR6d-1t7V_output.mp4
+--WebAppBoundary
+Content-Disposition: form-data; name="referenceFile"; filename="runway.webp"
+Content-Type: image/webp
+
+< ./runway.webp
+--WebAppBoundary
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "videoName": "Test Video",
+  "prompt": "Test prompt description",
+  "model": "test-model",
+  "mode": "VIDEO"
+}
+--WebAppBoundary--
+
+### AIVideo 저장 api (TEXT mode - no reference file)
+POST http://localhost:8080/api/my/videos
+Authorization: Bearer {{auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="videoFile"; filename="UUcobo42yaoKJR6d-1t7V_output.mp4"
+Content-Type: video/mp4
+
+< ./UUcobo42yaoKJR6d-1t7V_output.mp4
+--WebAppBoundary
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "videoName": "Text Mode Video",
+  "prompt": "This is a text-based video",
+  "model": "test-model",
+  "mode": "TEXT"
+}
+--WebAppBoundary--
+
+### AIVideo user video list api
+GET http://localhost:8080/api/my/videos/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3a3dqc3JqNTA3OUBnbWFpbC5jb20iLCJ1c2VySWQiOjEsImlhdCI6MTc0MjAyMzkzNCwiZXhwIjoxNzQyMDI3NTM0fQ.VtouNEZN7vN91m5E22wA9LuwOGlLV29pOCU1lNYxaAo
+Content-Type: application/json
+
+### AIVideo URL로 저장하기 (URL 방식)
+POST http://localhost:8080/api/my/videos
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3a3dqc3JqNTA3OUBnbWFpbC5jb20iLCJ1c2VySWQiOjEsImlhdCI6MTc0MjAyMzkzNCwiZXhwIjoxNzQyMDI3NTM0fQ.VtouNEZN7vN91m5E22wA9LuwOGlLV29pOCU1lNYxaAo
+Content-Type: application/json
+
+{
+  "videoName": "URL로 업로드된 비디오",
+  "prompt": "URL 테스트 프롬프트",
+  "model": "test-model",
+  "mode": "TEXT",
+  "videoUrl": "https://example.com/sample-video.mp4"
+}
+
+### fashnImageUpload API 테스트 - 이미지 URL 업로드
+POST http://localhost:8080/api/files/upload/fashn
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3a3dqc3JqNTA3OUBnbWFpbC5jb20iLCJ1c2VySWQiOjEsImlhdCI6MTc0NjI1MDE0NywiZXhwIjoxNzQ2NjEwMTQ3fQ.DPscv1RB_6YyZCIz8NqiyHFQjnDZQj_4K6xfPSpueCs
+Content-Type: application/json
+
+{
+  "imageUrl": "https://v3.fal.media/files/elephant/rkH-9qoXtXu3rAYTsx9V5_image.webp"
+}

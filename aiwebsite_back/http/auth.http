@@ -1,0 +1,17 @@
+### 회원가입
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+  "email": "songseungju@123",
+  "password": "1234"
+}
+
+### 로그인
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+"email": "songseungju",
+"password": "1234"
+}
