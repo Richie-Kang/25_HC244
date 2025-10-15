@@ -140,7 +140,7 @@ AI가 모델 착용/사용 장면을 자동으로 생성하고 결과 영상을 
 
 ---
 
-### 🔹 Example: Fal API Integration (Spring Boot)
+### 🔹 Key Code: Fal API Integration (Spring Boot)
 
 ```java
 // FalApiService.java
